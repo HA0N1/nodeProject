@@ -76,22 +76,11 @@
 
 </aside>
 <aside>
-📚 **개발한 API 테스트 해보기!**
+📚 개발한 API 테스트 해보기!
 
 </aside>
 
 - Thunder Client를 이용해 HTTP 요청을 시도해보세요!
-- 📚 **API 명세서 예시**
-    
-    <aside>
-    🧩 API 명세서와 동일하게 API를 구현하실 필요는 없습니다! 이런 식으로도 구현할 수 있다 정도로만 참고해주세요!
-    
-    </aside>
-    
-    - **API 명세서에서 꼭 오른쪽 상단의 크게보기를 눌러 큰화면을 보시는걸 추천드립니다.**
-    
-    [Node.js Lv.1 예시 API 명세서](https://www.notion.so/b73bbf497d6f4d41ad13afafc0cc340f?pvs=21)
-    
 
 <aside>
 ❓ **Why: 과제 제출시에는 아래 질문의 답변과 함께 제출해주세요.**
