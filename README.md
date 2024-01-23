@@ -5,6 +5,8 @@
 
 </aside>
 
+- 제출 기한 : 01월 23일(화) 12시까지
+  
 - **학습 과제를 끝내고 나면 할 수 있어요!**
     1. Node.js를 이용해서 웹 프레임워크를 구현할 수 있어요.
     2. MongoDB와 mongoose를 이용하여 원하는 데이터베이스를 설계하고 활용할 수 있어요.
@@ -73,49 +75,6 @@
 📔 **Directory Structure: 폴더 구조**
 
 </aside>
-
-```bash
-.
-├── .env
-├── .gitignore
-├── .prettierrc
-├── app.js
-├── routes
-│   └── products.router.js
-├── schemas
-│   ├── index.js
-│   └── products.schema.js
-├── package.json
-```
-
-- `index.js` 파일은 여러분의 서버와 **MongoDB**를 연결하기 위한 템플릿이 작성됩니다.
-    - **🍎 `index.js` 템플릿 코드 살펴보기**
-        
-        ```jsx
-        import mongoose from 'mongoose';
-        
-        const connect = () => {
-          // mongoose.connect는 MongoDB 서버에 연결하는 메서드입니다.
-          mongoose
-            .connect(
-              **// 빨간색으로 표시된 부분은 대여한 ID, Password, 주소에 맞게끔 수정해주세요!**
-              'mongodb+srv://sparta-user:aaaa4321@express-mongo.uy7ttg7.mongodb.net/?retryWrites=true&w=majority',
-              {
-                dbName: 'node_lv1', // node_lv1 데이터베이스명을 사용합니다.
-              },
-            )
-            .then(() => console.log('MongoDB 연결에 성공하였습니다.'))
-            .catch((err) => console.log(`MongoDB 연결에 실패하였습니다. ${err}`));
-        };
-        
-        mongoose.connection.on('error', (err) => {
-          console.error('MongoDB 연결 에러', err);
-        });
-        
-        export default connect;
-        ```
-        
-
 <aside>
 📚 **개발한 API 테스트 해보기!**
 
@@ -167,6 +126,3 @@
 
 </aside>
 
-- 제출 기한 : 01월 23일(화) 12시까지
-    
-    [[내일배움캠프] 주특기 입문주차 과제 제출](https://forms.gle/6FySQY2v5QS3XzFc6)
