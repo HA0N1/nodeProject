@@ -1,7 +1,7 @@
 # Node 입문 주차 개인 과제
 
 <aside>
-🏁 **Goal:  "Node.js와 express를 활용한 나만의 내배캠 장터 백엔드 서버 만들기"**
+🏁 Goal:  "Node.js와 express를 활용한 나만의 내배캠 장터 백엔드 서버 만들기"
 
 </aside>
 <aside>
@@ -23,14 +23,14 @@
 
 </aside>
 
-1. **웹 프레임워크**: Node.js에서 가장 대표적인 웹 프레임워크인 **Express.js**를 사용합니다.
-2. **패키지 매니저**: 빠른 설치 속도와 우수한 패키지 관리를 지원하는 **npm** 또는 **yarn** 패키지 매니저를 사용합니다.
-3. **모듈 시스템**: 최신 JS 문법을 지원하는 **ES6** 모듈 시스템 또는 기본 **CommonJS** 모듈 시스템을 사용합니다.
-4. **데이터베이스**: [**MongoDB Cloud**](https://www.mongodb.com/products/platform/cloud)에서 대여한 대표적인 NoSQL인 **MongoDB Atlas**을 사용합니다.
-5. **ODM**: **MongoDB**의 데이터를 쉽게 읽고 쓰게 해주는 [**mongoose](https://mongoosejs.com/docs/guide.html) ODM**을 사용합니다.
+1. 웹 프레임워크: Node.js에서 가장 대표적인 웹 프레임워크인 **Express.js**를 사용합니다.
+2. 패키지 매니저: 빠른 설치 속도와 우수한 패키지 관리를 지원하는 **npm** 또는 **yarn** 패키지 매니저를 사용합니다.
+3. 모듈 시스템: 최신 JS 문법을 지원하는 **ES6** 모듈 시스템 또는 기본 **CommonJS** 모듈 시스템을 사용합니다.
+4. 데이터베이스: [**MongoDB Cloud**](https://www.mongodb.com/products/platform/cloud)에서 대여한 대표적인 NoSQL인 **MongoDB Atlas**을 사용합니다.
+5. ODM: **Mongo의 데이터를 쉽게 읽고 쓰게 해주는 [**mongoose](https://mongoosejs.com/docs/guide.html) ODM**을 사용합니다.
 
 <aside>
-🚩 **필수 요구 사항**
+🚩 필수 요구 사항
 
 </aside>
 
@@ -72,11 +72,11 @@
 </aside>
 
 - 여러분의 프로젝트를 **[AWS EC2](https://ap-northeast-2.console.aws.amazon.com/ec2)**에 배포해주세요!
-- **[Gabia](https://gabia.com/)** 또는 **[AWS Route 53](https://us-east-1.console.aws.amazon.com/route53/v2/)**을 이용해 도메인 주소를 연결한다면 더욱 좋습니다!
+- [Gabia](https://gabia.com/) 또는 [AWS Route 53](https://us-east-1.console.aws.amazon.com/route53/v2/)을 이용해 도메인 주소를 연결한다면 더욱 좋습니다!
 - 배포된 IP 주소 또는 연결된 도메인 주소를 제출해주세요!
 
 <aside>
-📔 **Directory Structure: 폴더 구조**
+📔 Directory Structure: 폴더 구조
 
 </aside>
 <aside>
@@ -87,7 +87,7 @@
 - Thunder Client를 이용해 HTTP 요청을 시도해보세요!
 
 <aside>
-❓ **Why: 과제 제출시에는 아래 질문의 답변과 함께 제출해주세요.**
+❓ Why: 과제 제출시에는 아래 질문의 답변과 함께 제출해주세요.
 
 </aside>
 
@@ -98,7 +98,7 @@
 5. `mongoose`에서 상품 상태는 어떠한 방식으로 관리하였나요? 이 외에도 어떤 방법들이 있었을까요?
 
 <aside>
-⚠️ **Warning : 꼭 지켜야 할 것과 하지 않아도 되는 것!**
+⚠️ Warning : 꼭 지켜야 할 것과 하지 않아도 되는 것!
 
 </aside>
 
