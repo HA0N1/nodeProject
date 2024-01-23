@@ -1,0 +1,172 @@
+# Node 입문 주차 개인 과제
+
+<aside>
+🏁 **Goal:  "Node.js와 express를 활용한 나만의 내배캠 장터 백엔드 서버 만들기"**
+
+</aside>
+
+- **학습 과제를 끝내고 나면 할 수 있어요!**
+    1. Node.js를 이용해서 웹 프레임워크를 구현할 수 있어요.
+    2. MongoDB와 mongoose를 이용하여 원하는 데이터베이스를 설계하고 활용할 수 있어요.
+    3. Express.js를 기반으로 **CRUD(Create, Read, Update, Delete)** 기능이 포함된 REST API를 만들 수 있어요.
+    4. AWS EC2에 Express.js 를 이용한 웹 서비스를 배포할 수 있어요.
+    5. 프로젝트에 요구 사항을 토대로 API 리스트를 작성하고, 백엔드 서버를 설계할 수 있어요.
+
+<aside>
+🛠️ **Tech Stack: 백엔드 기술 스택**
+
+</aside>
+
+1. **웹 프레임워크**: Node.js에서 가장 대표적인 웹 프레임워크인 **Express.js**를 사용합니다.
+2. **패키지 매니저**: 빠른 설치 속도와 우수한 패키지 관리를 지원하는 **npm** 또는 **yarn** 패키지 매니저를 사용합니다.
+3. **모듈 시스템**: 최신 JS 문법을 지원하는 **ES6** 모듈 시스템 또는 기본 **CommonJS** 모듈 시스템을 사용합니다.
+4. **데이터베이스**: [**MongoDB Cloud**](https://www.mongodb.com/products/platform/cloud)에서 대여한 대표적인 NoSQL인 **MongoDB Atlas**을 사용합니다.
+5. **ODM**: **MongoDB**의 데이터를 쉽게 읽고 쓰게 해주는 [**mongoose](https://mongoosejs.com/docs/guide.html) ODM**을 사용합니다.
+
+<aside>
+🚩 **필수 요구 사항**
+
+</aside>
+
+<aside>
+0️⃣ 필수 요구 사항: 프로젝트 관리
+
+</aside>
+
+1. `.env` 파일을 이용해서 민감한 정보(DB 계정 정보, API Key 등)를 관리합니다.
+2. `.gitignore` 파일을 생성하여 `.env` 파일과 `node_modules` 폴더가 Github에 올라가지 않도록 설정합니다.
+3. `.prettierrc` 파일을 생성하여 일정한 코드 포맷팅을 유지할 수 있도록 설정합니다.
+
+<aside>
+1️⃣ 필수 요구 사항: API 구현하기
+
+</aside>
+
+1. 상품 작성 API
+    - 상품명, 작성 내용, 작성자명, 비밀번호를 **request**에서 전달 받기
+    - 상품은 두 가지 상태, **판매 중(`FOR_SALE`)및 판매 완료(`SOLD_OUT`)** 를 가질 수 있습니다.
+    - 상품 등록 시 기본 상태는 **판매 중(`FOR_SALE`)** 입니다.
+2. 상품 목록 조회 API
+    - 상품명, 작성자명, 상품 상태, 작성 날짜 조회하기
+    - 상품 목록은 작성 날짜를 기준으로 **내림차순(최신순)** 정렬하기
+3. 상품 상세 조회 API
+    - 상품명, 작성 내용, 작성자명, 상품 상태, 작성 날짜 조회하기
+4. 상품 정보 수정 API
+    - 상품명, 작성 내용, 상품 상태, 비밀번호를 **request**에서 전달받기
+    - 수정할 상품과 비밀번호 일치 여부를 확인한 후, 동일할 때만 글이 **수정**되게 하기
+    - 선택한 상품이 존재하지 않을 경우, “상품 조회에 실패하였습니다." 메시지 반환하기
+5. 상품 삭제 API
+    - 비밀번호를 **request**에서 전달받기
+    - 수정할 상품과 비밀번호 일치 여부를 확인한 후, 동일할 때만 글이 **삭제**되게 하기
+    - 선택한 상품이 존재하지 않을 경우, “상품 조회에 실패하였습니다." 메시지 반환하기
+
+<aside>
+2️⃣ 필수 요구 사항: AWS EC2 배포
+
+</aside>
+
+- 여러분의 프로젝트를 **[AWS EC2](https://ap-northeast-2.console.aws.amazon.com/ec2)**에 배포해주세요!
+- **[Gabia](https://gabia.com/)** 또는 **[AWS Route 53](https://us-east-1.console.aws.amazon.com/route53/v2/)**을 이용해 도메인 주소를 연결한다면 더욱 좋습니다!
+- 배포된 IP 주소 또는 연결된 도메인 주소를 제출해주세요!
+
+<aside>
+📔 **Directory Structure: 폴더 구조**
+
+</aside>
+
+```bash
+.
+├── .env
+├── .gitignore
+├── .prettierrc
+├── app.js
+├── routes
+│   └── products.router.js
+├── schemas
+│   ├── index.js
+│   └── products.schema.js
+├── package.json
+```
+
+- `index.js` 파일은 여러분의 서버와 **MongoDB**를 연결하기 위한 템플릿이 작성됩니다.
+    - **🍎 `index.js` 템플릿 코드 살펴보기**
+        
+        ```jsx
+        import mongoose from 'mongoose';
+        
+        const connect = () => {
+          // mongoose.connect는 MongoDB 서버에 연결하는 메서드입니다.
+          mongoose
+            .connect(
+              **// 빨간색으로 표시된 부분은 대여한 ID, Password, 주소에 맞게끔 수정해주세요!**
+              'mongodb+srv://sparta-user:aaaa4321@express-mongo.uy7ttg7.mongodb.net/?retryWrites=true&w=majority',
+              {
+                dbName: 'node_lv1', // node_lv1 데이터베이스명을 사용합니다.
+              },
+            )
+            .then(() => console.log('MongoDB 연결에 성공하였습니다.'))
+            .catch((err) => console.log(`MongoDB 연결에 실패하였습니다. ${err}`));
+        };
+        
+        mongoose.connection.on('error', (err) => {
+          console.error('MongoDB 연결 에러', err);
+        });
+        
+        export default connect;
+        ```
+        
+
+<aside>
+📚 **개발한 API 테스트 해보기!**
+
+</aside>
+
+- Thunder Client를 이용해 HTTP 요청을 시도해보세요!
+- 📚 **API 명세서 예시**
+    
+    <aside>
+    🧩 API 명세서와 동일하게 API를 구현하실 필요는 없습니다! 이런 식으로도 구현할 수 있다 정도로만 참고해주세요!
+    
+    </aside>
+    
+    - **API 명세서에서 꼭 오른쪽 상단의 크게보기를 눌러 큰화면을 보시는걸 추천드립니다.**
+    
+    [Node.js Lv.1 예시 API 명세서](https://www.notion.so/b73bbf497d6f4d41ad13afafc0cc340f?pvs=21)
+    
+
+<aside>
+❓ **Why: 과제 제출시에는 아래 질문의 답변과 함께 제출해주세요.**
+
+</aside>
+
+1. 수정 및 삭제 API에서 Resource를 구분하기 위해서 어떤 방식으로 요청(Request) 하셨나요? (`param`, `query`, `body`)
+2. 대표적인 HTTP Method의 4가지( `GET`, `POST`, `PUT`, `DELETE` )는 각각 어떤 상황에서 사용하였나요?
+3. API 설계 시 RESTful한 원칙을 따랐나요? 어떤 부분이 RESTful한 설계를 반영하였고, 어떤 부분이 그렇지 않았나요?
+4. 폴더 구조(Directory Structure)를 역할 별로 분리하였다면, 어떤 이점을 가져다 주었을까요?
+5. `mongoose`에서 상품 상태는 어떠한 방식으로 관리하였나요? 이 외에도 어떤 방법들이 있었을까요?
+
+<aside>
+⚠️ **Warning : 꼭 지켜야 할 것과 하지 않아도 되는 것!**
+
+</aside>
+
+- 이것은 꼭 지켜주세요(Do's)
+    - 과제 요구 사항은 모두 지켜주세요. 특정 기능을 임의로 배제하면 안 됩니다!
+- 이것은 하지 않으셔도 돼요(Don'ts)
+    - 과제 추가 기획 때문에 고민하지 마세요. 위에 작성된 과제 요구 사항만 지키면 됩니다!
+        
+        → 좋은 예 (⭕): "아하, 결국 Express.js 로 기본 CRUD 기능을 구현한 서비스를 만들고 배포하면 되는거구나!"
+        
+        → 나쁜 예 (❌): "다른 기능이 더 있어야 하지 않을까?"
+        
+        ⚠️ 단, 필수요구사항을 다 끝냈다고 해서 개인 과제가 끝난 것은 아닙니다. 기획 단계에서 추가요구사항을 고려하는 것을 지양하는 것이지 선택요구사항을 구현하지 않아도 된다는 것은 아닙니다. 여러분의 실력 향상을 위해서라도 필수요구사항이 완벽하게 끝났다면 선택요구사항도 도전해주세요. 
+        
+
+<aside>
+💡 과제 제출
+
+</aside>
+
+- 제출 기한 : 01월 23일(화) 12시까지
+    
+    [[내일배움캠프] 주특기 입문주차 과제 제출](https://forms.gle/6FySQY2v5QS3XzFc6)
