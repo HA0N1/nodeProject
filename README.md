@@ -1,7 +1,7 @@
 # Node 입문 주차 개인 과제
 
 <aside>
-🏁 Goal:  "Node.js와 express를 활용한 나만의 내배캠 장터 백엔드 서버 만들기"
+## 🏁 Goal:  "Node.js와 express를 활용한 나만의 내배캠 장터 백엔드 서버 만들기"
 
 </aside>
 <aside>
