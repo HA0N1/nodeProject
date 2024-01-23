@@ -6,6 +6,9 @@ dotenv.config(); // .env 파일에서 환경 변수 로드
 const connect = () => {
   mongoose
     .connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
       dbName: process.env.DB_NAME,
     })
     .then(() => console.log('MongoDB 연결에 성공하였습니다.'))
