@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-dotenv.config(); // .env 파일에서 환경 변수 로드
+// .env 파일의 위치 지정
+dotenv.config({ path: './.env' });
 
 const connect = () => {
   mongoose
